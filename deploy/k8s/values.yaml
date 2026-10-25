@@ -1,0 +1,112 @@
+# Default values for cdn-caching-proxy.
+replicaCount: 3
+
+image:
+  repository: cdn-caching-proxy
+  pullPolicy: IfNotPresent
+  tag: "1.0.0"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: "cdn-proxy"
+
+serviceAccount:
+  create: true
+  annotations: {}
+  name: ""
+
+podSecurityContext:
+  runAsNonRoot: true
+  runAsUser: 10001
+  runAsGroup: 10001
+  fsGroup: 10001
+  seccompProfile:
+    type: RuntimeDefault
+
+securityContext:
+  allowPrivilegeEscalation: false
+  readOnlyRootFilesystem: true
+  capabilities:
+    drop:
+      - ALL
+
+service:
+  client:
+    type: ClusterIP
+    port: 8080
+    targetPort: 8080
+  headless:
+    port: 8080
+    peerPort: 9090
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  hosts:
+    - host: cdn.example.com
+      paths:
+        - path: /
+          pathType: Prefix
+
+resources:
+  limits:
+    cpu: 2000m
+    memory: 1Gi
+  requests:
+    cpu: 500m
+    memory: 512Mi
+
+# Graceful shutdown: termination grace period must be >= application drain grace + margin
+terminationGracePeriodSeconds: 30
+
+lifecycle:
+  preStop:
+    exec:
+      command: ["/bin/sh", "-c", "sleep 5"]
+
+probes:
+  startup:
+    path: /health
+    port: 8080
+    initialDelaySeconds: 2
+    periodSeconds: 5
+    failureThreshold: 6
+  readiness:
+    path: /health
+    port: 8080
+    periodSeconds: 5
+    failureThreshold: 3
+  liveness:
+    path: /health
+    port: 8080
+    periodSeconds: 10
+    failureThreshold: 3
+
+persistence:
+  enabled: true
+  storageClass: "standard"
+  accessModes:
+    - ReadWriteOnce
+  size: 20Gi
+  mountPath: /var/cache/cdn
+
+autoscaling:
+  enabled: true
+  minReplicas: 3
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 80
+
+podDisruptionBudget:
+  enabled: true
+  minAvailable: 2
+
+networkPolicy:
+  enabled: true
+  adminAllowedNamespaces:
+    - monitoring
+    - cdn-admin
+
+serviceMonitor:
+  enabled: true
+  interval: 10s

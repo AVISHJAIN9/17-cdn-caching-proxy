@@ -1,0 +1,15 @@
+{{- if .Values.podDisruptionBudget.enabled }}
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: {{ .Values.fullnameOverride | default "cdn-proxy" }}-pdb
+  labels:
+    app.kubernetes.io/name: cdn-caching-proxy
+    app.kubernetes.io/instance: {{ .Release.Name | default "cdn-proxy" }}
+spec:
+  minAvailable: {{ .Values.podDisruptionBudget.minAvailable | default 2 }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: cdn-caching-proxy
+      app.kubernetes.io/instance: {{ .Release.Name | default "cdn-proxy" }}
+{{- end }}

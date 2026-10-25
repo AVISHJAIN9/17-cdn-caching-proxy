@@ -1,0 +1,18 @@
+{{- if .Values.serviceMonitor.enabled }}
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ .Values.fullnameOverride | default "cdn-proxy" }}-monitor
+  labels:
+    app.kubernetes.io/name: cdn-caching-proxy
+    app.kubernetes.io/instance: {{ .Release.Name | default "cdn-proxy" }}
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: cdn-caching-proxy
+      app.kubernetes.io/instance: {{ .Release.Name | default "cdn-proxy" }}
+  endpoints:
+    - port: admin
+      path: /metrics
+      interval: {{ .Values.serviceMonitor.interval | default "10s" }}
+{{- end }}

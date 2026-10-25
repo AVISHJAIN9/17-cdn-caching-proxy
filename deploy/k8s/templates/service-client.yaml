@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.fullnameOverride | default "cdn-proxy" }}
+  labels:
+    app.kubernetes.io/name: cdn-caching-proxy
+    app.kubernetes.io/instance: {{ .Release.Name | default "cdn-proxy" }}
+spec:
+  type: {{ .Values.service.client.type | default "ClusterIP" }}
+  selector:
+    app.kubernetes.io/name: cdn-caching-proxy
+    app.kubernetes.io/instance: {{ .Release.Name | default "cdn-proxy" }}
+  ports:
+    - name: http
+      port: {{ .Values.service.client.port | default 8080 }}
+      targetPort: 8080

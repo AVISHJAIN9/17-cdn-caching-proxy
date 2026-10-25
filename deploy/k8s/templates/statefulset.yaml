@@ -1,0 +1,105 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ .Values.fullnameOverride | default "cdn-proxy" }}
+  labels:
+    app.kubernetes.io/name: cdn-caching-proxy
+    app.kubernetes.io/instance: {{ .Release.Name | default "cdn-proxy" }}
+spec:
+  serviceName: {{ .Values.fullnameOverride | default "cdn-proxy" }}-headless
+  replicas: {{ .Values.replicaCount | default 3 }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: cdn-caching-proxy
+      app.kubernetes.io/instance: {{ .Release.Name | default "cdn-proxy" }}
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: cdn-caching-proxy
+        app.kubernetes.io/instance: {{ .Release.Name | default "cdn-proxy" }}
+    spec:
+      terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds | default 30 }}
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        runAsGroup: 10001
+        fsGroup: 10001
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: proxy
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy | default "IfNotPresent" }}
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop:
+                - ALL
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+            - name: admin
+              containerPort: 9090
+              protocol: TCP
+          lifecycle:
+            preStop:
+              exec:
+                command: ["/bin/sh", "-c", "sleep 5"]
+          startupProbe:
+            httpGet:
+              path: {{ .Values.probes.startup.path | default "/health" }}
+              port: 8080
+            initialDelaySeconds: {{ .Values.probes.startup.initialDelaySeconds | default 2 }}
+            periodSeconds: {{ .Values.probes.startup.periodSeconds | default 5 }}
+            failureThreshold: {{ .Values.probes.startup.failureThreshold | default 6 }}
+          readinessProbe:
+            httpGet:
+              path: {{ .Values.probes.readiness.path | default "/health" }}
+              port: 8080
+            periodSeconds: {{ .Values.probes.readiness.periodSeconds | default 5 }}
+            failureThreshold: {{ .Values.probes.readiness.failureThreshold | default 3 }}
+          livenessProbe:
+            httpGet:
+              path: {{ .Values.probes.liveness.path | default "/health" }}
+              port: 8080
+            periodSeconds: {{ .Values.probes.liveness.periodSeconds | default 10 }}
+            failureThreshold: {{ .Values.probes.liveness.failureThreshold | default 3 }}
+          resources:
+            requests:
+              cpu: {{ .Values.resources.requests.cpu | default "500m" }}
+              memory: {{ .Values.resources.requests.memory | default "512Mi" }}
+            limits:
+              cpu: {{ .Values.resources.limits.cpu | default "2000m" }}
+              memory: {{ .Values.resources.limits.memory | default "1Gi" }}
+          volumeMounts:
+            - name: disk-cache
+              mountPath: /var/cache/cdn
+            - name: tmp-dir
+              mountPath: /tmp
+            - name: config-volume
+              mountPath: /etc/cdn
+              readOnly: true
+            - name: secret-volume
+              mountPath: /etc/cdn-secrets
+              readOnly: true
+      volumes:
+        - name: tmp-dir
+          emptyDir: {}
+        - name: config-volume
+          configMap:
+            name: {{ .Values.fullnameOverride | default "cdn-proxy" }}-config
+        - name: secret-volume
+          secret:
+            secretName: {{ .Values.fullnameOverride | default "cdn-proxy" }}-secrets
+  volumeClaimTemplates:
+    - metadata:
+        name: disk-cache
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        storageClassName: {{ .Values.persistence.storageClass | default "standard" }}
+        resources:
+          requests:
+            storage: {{ .Values.persistence.size | default "20Gi" }}

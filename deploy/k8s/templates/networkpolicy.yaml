@@ -1,0 +1,43 @@
+{{- if .Values.networkPolicy.enabled }}
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: {{ .Values.fullnameOverride | default "cdn-proxy" }}-netpol
+  labels:
+    app.kubernetes.io/name: cdn-caching-proxy
+    app.kubernetes.io/instance: {{ .Release.Name | default "cdn-proxy" }}
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: cdn-caching-proxy
+      app.kubernetes.io/instance: {{ .Release.Name | default "cdn-proxy" }}
+  policyTypes:
+    - Ingress
+    - Egress
+  ingress:
+    # Allow client data plane traffic on port 8080 from anywhere
+    - from: []
+      ports:
+        - protocol: TCP
+          port: 8080
+    # Restrict admin port 9090 to internal monitoring and authorized admin namespaces
+    - from:
+        - namespaceSelector:
+            matchExpressions:
+              - key: kubernetes.io/metadata.name
+                operator: In
+                values:
+                  {{- range .Values.networkPolicy.adminAllowedNamespaces }}
+                  - {{ . }}
+                  {{- end }}
+        # Or peer pods in the same namespace
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: cdn-caching-proxy
+      ports:
+        - protocol: TCP
+          port: 9090
+  egress:
+    # Allow DNS lookup and egress to upstream origins
+    - to: []
+{{- end }}

@@ -1,0 +1,12 @@
+{
+  "origins": {
+    "default": {
+      "url": "http://127.0.0.1:3000"
+    }
+  },
+  "defaultOrigin": "default",
+  "cache": {
+    "enabled": true,
+    "defaultTtlMs": 60000
+  }
+}

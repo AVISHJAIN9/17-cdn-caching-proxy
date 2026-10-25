@@ -1,0 +1,1352 @@
+[
+  {
+    "index": 1,
+    "name": "HTTP/HTTPS listener",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Proxy Core"
+  },
+  {
+    "index": 2,
+    "name": "Request parsing",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Proxy Core"
+  },
+  {
+    "index": 3,
+    "name": "Response parsing",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Proxy Core"
+  },
+  {
+    "index": 4,
+    "name": "HTTP method handling",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Proxy Core"
+  },
+  {
+    "index": 5,
+    "name": "URL normalization",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Proxy Core"
+  },
+  {
+    "index": 6,
+    "name": "Header normalization",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Proxy Core"
+  },
+  {
+    "index": 7,
+    "name": "Upstream connections",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Proxy Core"
+  },
+  {
+    "index": 8,
+    "name": "Request forwarding",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Proxy Core"
+  },
+  {
+    "index": 9,
+    "name": "Response forwarding",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Proxy Core"
+  },
+  {
+    "index": 10,
+    "name": "Streaming responses",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Proxy Core"
+  },
+  {
+    "index": 11,
+    "name": "Keep-alive",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Proxy Core"
+  },
+  {
+    "index": 12,
+    "name": "Timeouts",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Proxy Core"
+  },
+  {
+    "index": 13,
+    "name": "Cancellation",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Proxy Core"
+  },
+  {
+    "index": 14,
+    "name": "Cache lookup",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Caching"
+  },
+  {
+    "index": 15,
+    "name": "Cache miss",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Caching"
+  },
+  {
+    "index": 16,
+    "name": "Cache hit",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Caching"
+  },
+  {
+    "index": 17,
+    "name": "Cache key generation",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Caching"
+  },
+  {
+    "index": 18,
+    "name": "Key normalization",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Caching"
+  },
+  {
+    "index": 19,
+    "name": "Cache-Control parsing",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Caching"
+  },
+  {
+    "index": 20,
+    "name": "ETag",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Caching"
+  },
+  {
+    "index": 21,
+    "name": "Last-Modified",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Caching"
+  },
+  {
+    "index": 22,
+    "name": "If-None-Match",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Caching"
+  },
+  {
+    "index": 23,
+    "name": "If-Modified-Since",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Caching"
+  },
+  {
+    "index": 24,
+    "name": "Expires",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Caching"
+  },
+  {
+    "index": 25,
+    "name": "Max-Age",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Caching"
+  },
+  {
+    "index": 26,
+    "name": "Stale-while-revalidate",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Caching"
+  },
+  {
+    "index": 27,
+    "name": "Memory cache",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Storage & Eviction"
+  },
+  {
+    "index": 28,
+    "name": "Disk cache",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Storage & Eviction"
+  },
+  {
+    "index": 29,
+    "name": "Persistent cache",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Storage & Eviction"
+  },
+  {
+    "index": 30,
+    "name": "Metadata index",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Storage & Eviction"
+  },
+  {
+    "index": 31,
+    "name": "Object storage",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Storage & Eviction"
+  },
+  {
+    "index": 32,
+    "name": "LRU",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Storage & Eviction"
+  },
+  {
+    "index": 33,
+    "name": "LFU",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Storage & Eviction"
+  },
+  {
+    "index": 34,
+    "name": "TTL eviction",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Storage & Eviction"
+  },
+  {
+    "index": 35,
+    "name": "Size eviction",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Storage & Eviction"
+  },
+  {
+    "index": 36,
+    "name": "Segmented cache",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Storage & Eviction"
+  },
+  {
+    "index": 37,
+    "name": "Namespaces",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Storage & Eviction"
+  },
+  {
+    "index": 38,
+    "name": "Tenant quotas",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Storage & Eviction"
+  },
+  {
+    "index": 39,
+    "name": "Object limits",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Storage & Eviction"
+  },
+  {
+    "index": 40,
+    "name": "Conditional revalidation",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Freshness & Revalidation"
+  },
+  {
+    "index": 41,
+    "name": "Background revalidation",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Freshness & Revalidation"
+  },
+  {
+    "index": 42,
+    "name": "Synchronous revalidation",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Freshness & Revalidation"
+  },
+  {
+    "index": 43,
+    "name": "304 handling",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Freshness & Revalidation"
+  },
+  {
+    "index": 44,
+    "name": "Stale serving",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Freshness & Revalidation"
+  },
+  {
+    "index": 45,
+    "name": "Freshness calculation",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Freshness & Revalidation"
+  },
+  {
+    "index": 46,
+    "name": "Age header",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Freshness & Revalidation"
+  },
+  {
+    "index": 47,
+    "name": "Date header",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Freshness & Revalidation"
+  },
+  {
+    "index": 48,
+    "name": "Origin validation",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Freshness & Revalidation"
+  },
+  {
+    "index": 49,
+    "name": "Revalidation locks",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Freshness & Revalidation"
+  },
+  {
+    "index": 50,
+    "name": "Request coalescing",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Freshness & Revalidation"
+  },
+  {
+    "index": 51,
+    "name": "Stampede prevention",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Freshness & Revalidation"
+  },
+  {
+    "index": 52,
+    "name": "Collapsed forwarding",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Freshness & Revalidation"
+  },
+  {
+    "index": 53,
+    "name": "Origin config",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Routing & Origins"
+  },
+  {
+    "index": 54,
+    "name": "Multiple origins",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Routing & Origins"
+  },
+  {
+    "index": 55,
+    "name": "Origin pools",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Routing & Origins"
+  },
+  {
+    "index": 56,
+    "name": "Weighted routing",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Routing & Origins"
+  },
+  {
+    "index": 57,
+    "name": "Health routing",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Routing & Origins"
+  },
+  {
+    "index": 58,
+    "name": "Failover origins",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Routing & Origins"
+  },
+  {
+    "index": 59,
+    "name": "Active health checks",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Routing & Origins"
+  },
+  {
+    "index": 60,
+    "name": "Passive health checks",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Routing & Origins"
+  },
+  {
+    "index": 61,
+    "name": "Circuit breaker",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Routing & Origins"
+  },
+  {
+    "index": 62,
+    "name": "Connection pooling",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Routing & Origins"
+  },
+  {
+    "index": 63,
+    "name": "DNS caching",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Routing & Origins"
+  },
+  {
+    "index": 64,
+    "name": "DNS refresh",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Routing & Origins"
+  },
+  {
+    "index": 65,
+    "name": "Load balancing",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Routing & Origins"
+  },
+  {
+    "index": 66,
+    "name": "Gzip",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Compression & Content"
+  },
+  {
+    "index": 67,
+    "name": "Brotli",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Compression & Content"
+  },
+  {
+    "index": 68,
+    "name": "Zstandard",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Compression & Content"
+  },
+  {
+    "index": 69,
+    "name": "Content negotiation",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Compression & Content"
+  },
+  {
+    "index": 70,
+    "name": "Accept-Encoding",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Compression & Content"
+  },
+  {
+    "index": 71,
+    "name": "Compression bypass",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Compression & Content"
+  },
+  {
+    "index": 72,
+    "name": "Compression levels",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Compression & Content"
+  },
+  {
+    "index": 73,
+    "name": "Content-type rules",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Compression & Content"
+  },
+  {
+    "index": 74,
+    "name": "Range requests",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Compression & Content"
+  },
+  {
+    "index": 75,
+    "name": "Partial caching",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Compression & Content"
+  },
+  {
+    "index": 76,
+    "name": "Chunked transfer",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Compression & Content"
+  },
+  {
+    "index": 77,
+    "name": "Content-length validation",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Compression & Content"
+  },
+  {
+    "index": 78,
+    "name": "Binary content",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Compression & Content"
+  },
+  {
+    "index": 79,
+    "name": "TLS termination",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Security"
+  },
+  {
+    "index": 80,
+    "name": "TLS upstream",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Security"
+  },
+  {
+    "index": 81,
+    "name": "Certificate config",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Security"
+  },
+  {
+    "index": 82,
+    "name": "Certificate rotation",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Security"
+  },
+  {
+    "index": 83,
+    "name": "mTLS",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Security"
+  },
+  {
+    "index": 84,
+    "name": "API-key auth",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Security"
+  },
+  {
+    "index": 85,
+    "name": "JWT/OIDC",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Security"
+  },
+  {
+    "index": 86,
+    "name": "IP allowlist",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Security"
+  },
+  {
+    "index": 87,
+    "name": "IP denylist",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Security"
+  },
+  {
+    "index": 88,
+    "name": "Host allowlist",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Security"
+  },
+  {
+    "index": 89,
+    "name": "Origin access control",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Security"
+  },
+  {
+    "index": 90,
+    "name": "Tenant isolation",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Security"
+  },
+  {
+    "index": 91,
+    "name": "Request header filtering",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Security"
+  },
+  {
+    "index": 92,
+    "name": "Prometheus",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Observability"
+  },
+  {
+    "index": 93,
+    "name": "OpenTelemetry",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Observability"
+  },
+  {
+    "index": 94,
+    "name": "Structured logs",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Observability"
+  },
+  {
+    "index": 95,
+    "name": "Request logs",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Observability"
+  },
+  {
+    "index": 96,
+    "name": "Cache-hit metrics",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Observability"
+  },
+  {
+    "index": 97,
+    "name": "Cache-miss metrics",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Observability"
+  },
+  {
+    "index": 98,
+    "name": "Hit-ratio metrics",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Observability"
+  },
+  {
+    "index": 99,
+    "name": "Byte-hit metrics",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Observability"
+  },
+  {
+    "index": 100,
+    "name": "Origin latency",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Observability"
+  },
+  {
+    "index": 101,
+    "name": "Proxy latency",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Observability"
+  },
+  {
+    "index": 102,
+    "name": "Eviction metrics",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Observability"
+  },
+  {
+    "index": 103,
+    "name": "Revalidation metrics",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Observability"
+  },
+  {
+    "index": 104,
+    "name": "Upstream errors",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Observability"
+  },
+  {
+    "index": 105,
+    "name": "CDN dashboard",
+    "frontend": true,
+    "backend": true,
+    "database": false,
+    "priority": "P1",
+    "area": "Frontend / Operations"
+  },
+  {
+    "index": 106,
+    "name": "Cache overview",
+    "frontend": true,
+    "backend": true,
+    "database": false,
+    "priority": "P1",
+    "area": "Frontend / Operations"
+  },
+  {
+    "index": 107,
+    "name": "Hit-ratio charts",
+    "frontend": true,
+    "backend": true,
+    "database": false,
+    "priority": "P1",
+    "area": "Frontend / Operations"
+  },
+  {
+    "index": 108,
+    "name": "Traffic charts",
+    "frontend": true,
+    "backend": true,
+    "database": false,
+    "priority": "P1",
+    "area": "Frontend / Operations"
+  },
+  {
+    "index": 109,
+    "name": "Origin latency charts",
+    "frontend": true,
+    "backend": true,
+    "database": false,
+    "priority": "P1",
+    "area": "Frontend / Operations"
+  },
+  {
+    "index": 110,
+    "name": "Cache-size charts",
+    "frontend": true,
+    "backend": true,
+    "database": false,
+    "priority": "P1",
+    "area": "Frontend / Operations"
+  },
+  {
+    "index": 111,
+    "name": "Eviction charts",
+    "frontend": true,
+    "backend": true,
+    "database": false,
+    "priority": "P1",
+    "area": "Frontend / Operations"
+  },
+  {
+    "index": 112,
+    "name": "Origin health",
+    "frontend": true,
+    "backend": true,
+    "database": false,
+    "priority": "P1",
+    "area": "Frontend / Operations"
+  },
+  {
+    "index": 113,
+    "name": "Route configuration",
+    "frontend": true,
+    "backend": true,
+    "database": false,
+    "priority": "P1",
+    "area": "Frontend / Operations"
+  },
+  {
+    "index": 114,
+    "name": "Cache policy editor",
+    "frontend": true,
+    "backend": true,
+    "database": false,
+    "priority": "P1",
+    "area": "Frontend / Operations"
+  },
+  {
+    "index": 115,
+    "name": "Purge interface",
+    "frontend": true,
+    "backend": true,
+    "database": false,
+    "priority": "P1",
+    "area": "Frontend / Operations"
+  },
+  {
+    "index": 116,
+    "name": "Tenant view",
+    "frontend": true,
+    "backend": true,
+    "database": false,
+    "priority": "P1",
+    "area": "Frontend / Operations"
+  },
+  {
+    "index": 117,
+    "name": "Request inspection",
+    "frontend": true,
+    "backend": true,
+    "database": false,
+    "priority": "P1",
+    "area": "Frontend / Operations"
+  },
+  {
+    "index": 118,
+    "name": "Single-URL purge",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Purge & Control APIs"
+  },
+  {
+    "index": 119,
+    "name": "Prefix purge",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Purge & Control APIs"
+  },
+  {
+    "index": 120,
+    "name": "Tag purge",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Purge & Control APIs"
+  },
+  {
+    "index": 121,
+    "name": "Host purge",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Purge & Control APIs"
+  },
+  {
+    "index": 122,
+    "name": "Tenant purge",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Purge & Control APIs"
+  },
+  {
+    "index": 123,
+    "name": "Purge API",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Purge & Control APIs"
+  },
+  {
+    "index": 124,
+    "name": "Purge auth",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Purge & Control APIs"
+  },
+  {
+    "index": 125,
+    "name": "Async purge jobs",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Purge & Control APIs"
+  },
+  {
+    "index": 126,
+    "name": "Purge status",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Purge & Control APIs"
+  },
+  {
+    "index": 127,
+    "name": "Purge retries",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Purge & Control APIs"
+  },
+  {
+    "index": 128,
+    "name": "Purge audit trail",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Purge & Control APIs"
+  },
+  {
+    "index": 129,
+    "name": "Cache warm API",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Purge & Control APIs"
+  },
+  {
+    "index": 130,
+    "name": "Prefetch API",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Purge & Control APIs"
+  },
+  {
+    "index": 131,
+    "name": "High-concurrency testing",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P1",
+    "area": "Reliability & AI"
+  },
+  {
+    "index": 132,
+    "name": "Large-object testing",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P1",
+    "area": "Reliability & AI"
+  },
+  {
+    "index": 133,
+    "name": "Stampede testing",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P1",
+    "area": "Reliability & AI"
+  },
+  {
+    "index": 134,
+    "name": "Origin outage testing",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P1",
+    "area": "Reliability & AI"
+  },
+  {
+    "index": 135,
+    "name": "Disk failure testing",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P1",
+    "area": "Reliability & AI"
+  },
+  {
+    "index": 136,
+    "name": "Memory pressure testing",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P1",
+    "area": "Reliability & AI"
+  },
+  {
+    "index": 137,
+    "name": "Load testing",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P1",
+    "area": "Reliability & AI"
+  },
+  {
+    "index": 138,
+    "name": "Benchmark harness",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P1",
+    "area": "Reliability & AI"
+  },
+  {
+    "index": 139,
+    "name": "CPU profiling",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P1",
+    "area": "Reliability & AI"
+  },
+  {
+    "index": 140,
+    "name": "Memory profiling",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P1",
+    "area": "Reliability & AI"
+  },
+  {
+    "index": 141,
+    "name": "Horizontal scaling",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P1",
+    "area": "Reliability & AI"
+  },
+  {
+    "index": 142,
+    "name": "Container deployment",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P1",
+    "area": "Reliability & AI"
+  },
+  {
+    "index": 143,
+    "name": "Kubernetes deployment",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P1",
+    "area": "Reliability & AI"
+  },
+  {
+    "index": 144,
+    "name": "Error handling",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Proxy Core"
+  },
+  {
+    "index": 145,
+    "name": "Stale-if-error",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Caching"
+  },
+  {
+    "index": 146,
+    "name": "Compaction",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Storage & Eviction"
+  },
+  {
+    "index": 147,
+    "name": "Refresh-ahead",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Freshness & Revalidation"
+  },
+  {
+    "index": 148,
+    "name": "Consistent hashing",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Routing & Origins"
+  },
+  {
+    "index": 149,
+    "name": "Large-object streaming",
+    "frontend": false,
+    "backend": true,
+    "database": false,
+    "priority": "P0",
+    "area": "Compression & Content"
+  },
+  {
+    "index": 150,
+    "name": "Response header filtering",
+    "frontend": false,
+    "backend": true,
+    "database": true,
+    "priority": "P0",
+    "area": "Security"
+  }
+]

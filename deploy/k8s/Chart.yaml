@@ -1,0 +1,15 @@
+apiVersion: v2
+name: cdn-caching-proxy
+description: Production Helm chart for RFC 9111 Distributed CDN Caching Proxy StatefulSet
+type: application
+version: 1.0.0
+appVersion: "1.0.0"
+keywords:
+  - cdn
+  - caching
+  - proxy
+  - rfc9111
+  - statefulset
+maintainers:
+  - name: CDN Platform Team
+    email: cdn-team@example.com

@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.fullnameOverride | default "cdn-proxy" }}-config
+  labels:
+    app.kubernetes.io/name: cdn-caching-proxy
+    app.kubernetes.io/instance: {{ .Release.Name | default "cdn-proxy" }}
+data:
+  config.json: |
+    {
+      "listeners": {
+        "http": { "host": "0.0.0.0", "port": 8080 }
+      },
+      "cache": {
+        "enabled": true,
+        "maxMemoryBytes": 134217728,
+        "disk": {
+          "enabled": true,
+          "cacheDir": "/var/cache/cdn",
+          "maxDiskBytes": 10737418240
+        }
+      },
+      "shutdownGracePeriodMs": 20000
+    }
