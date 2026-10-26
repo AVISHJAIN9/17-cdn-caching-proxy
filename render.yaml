@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: aj-cdn-caching-proxy
+    runtime: docker
+    plan: free
+    autoDeploy: true

@@ -14,3 +14,5 @@ build/
 .venv/
 !tests/fixtures/**/*.key
 !tests/fixtures/**/*.pem
+!tests/fixtures/**/*.key
+!tests/fixtures/**/*.pem
