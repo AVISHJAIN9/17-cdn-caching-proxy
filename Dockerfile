@@ -51,4 +51,4 @@ HEALTHCHECK --interval=10s --timeout=3s --start-period=5s --retries=3 \
 
 STOPSIGNAL SIGTERM
 
-ENTRYPOINT ["node", "dist/proxy/index.js"]
+ENTRYPOINT ["node", "dist/src/proxy/index.js"]
