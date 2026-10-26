@@ -11,5 +11,6 @@ __pycache__/
 dist/
 build/
 
-.venv/!tests/fixtures/**/*.key
+.venv/
+!tests/fixtures/**/*.key
 !tests/fixtures/**/*.pem
