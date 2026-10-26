@@ -165,7 +165,7 @@ export async function createAndStartProxy(config: ProxyServerConfig = {}) {
   }
 
   const httpHost = config.httpHost ?? process.env.PROXY_HOST ?? '0.0.0.0';
-  const httpPort = config.httpPort ?? config.port ?? (process.env.PROXY_PORT ? parseInt(process.env.PROXY_PORT, 10) : 8080);
+  const httpPort = config.httpPort ?? config.port ?? (process.env.PORT ? parseInt(process.env.PORT, 10) : (process.env.PROXY_PORT ? parseInt(process.env.PROXY_PORT, 10) : 8080));
   const poolSelector = config.poolSelector ?? new PoolSelector();
   const parsedOrigins = parseOriginsConfig(
     config.originsConfig ?? { origin: { url: config.originUrl ?? process.env.ORIGIN_URL ?? 'http://127.0.0.1:9090' } }
@@ -635,6 +635,16 @@ export async function createAndStartProxy(config: ProxyServerConfig = {}) {
 
       if (authenticatedTenantId) {
         tenantId = authenticatedTenantId;
+      }
+
+      if ((proxyReq.url === '/health' || proxyReq.url === '/healthz') && proxyReq.method === 'GET') {
+        clientRes.sendDate = false;
+        clientRes.writeHead(200, {
+          'Content-Type': 'application/json',
+          Date: formatHttpDate(clock.now()),
+        });
+        clientRes.end(JSON.stringify({ status: 'ok' }));
+        return;
       }
 
       const metricsEndpoint = config.metricsPath ?? '/metrics';
